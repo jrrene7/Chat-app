@@ -16,8 +16,8 @@ export default class LoginForm extends Component {
 		if(isUser){
 			this.setError("Name already taken")
 		}else {
-			this.props.setUser(user)
-			this.setError("")
+						this.setError("")
+						this.props.setUser(user)
 		}
 
 	}
@@ -29,7 +29,7 @@ export default class LoginForm extends Component {
 			socket.emit(VERIFY_USER, nickname, this.setUser)
 	}
 
-	handleSubmit = (e) => {
+	handleChange = (e) => {
 		this.setState({nickname:e.target.value})
 
 	}
@@ -46,7 +46,7 @@ export default class LoginForm extends Component {
 			<div className="login">
 				 <form onSubmit={this.handleSubmit} className="login-form">
 
-				  <label htmlfor="nickname">
+				  <label htmlFor="nickname">
 				  <h2>Got a nickname?</h2>
 				  </label>
 				  <input 
