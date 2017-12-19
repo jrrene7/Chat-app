@@ -1,7 +1,7 @@
 const io = require('./index.js').io
 
 const { VERIFY_USER, USER_CONNECTED, USER_DISCONNECTED, 
-		LOGOUT, COMMUNITY_CHAT, MESSAGE_RECIEVED, MESSAGE_SENT,
+		LOGOUT, COMMUNITY_CHAT, MESSAGE_RECEIVED, MESSAGE_SENT,
 		TYPING  } = require('../Events')
 
 const { createUser, createMessage, createChat } = require('../Factories')
@@ -94,7 +94,7 @@ function sendTypingToChat(user){
 */
 function sendMessageToChat(sender){
 	return (chatId, message)=>{
-		io.emit(`${MESSAGE_RECIEVED}-${chatId}`, createMessage({message, sender}))
+		io.emit(`${MESSAGE_RECEIVED}-${chatId}`, createMessage({message, sender}))
 	}
 }
 
